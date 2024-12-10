@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="description" content="Portfolio d'Aymeric SOULAS - Étudiant en GEII àTelecom Saint Etienne">
     <title>Aymeric SOULAS</title>
     <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
     <canvas id="background-canvas"></canvas>
@@ -20,24 +23,16 @@
             </div>
         </div>
         <div class="zone_de_texte">
-            <section>
-                <h3 data-translate="contact">Contact</h3>
-                <p data-translate="contact-email">Email: aymeric.soulas@yahoo.com</p>
-                <p data-translate="contact-phone">Phone: +33 06 31 66 43 75</p>
-            </section>
-            <section>
+            <section class="profile">
                 <h3 data-translate="about">À propos de moi</h3>
                 <p data-translate="about-text">Je suis un étudiant qui cherche à développer son expérience professionnelle et à affiner et découvrir des compétences dans quelque domaine que ce soit !</p>
+                <div class="contact-info">
+                    <p data-translate="contact-email">Email: aymeric.soulas@yahoo.com</p>
+                    <p data-translate="contact-phone">Phone: +33 06 31 66 43 75</p>
+                </div>
             </section>
-            <section>
-                <h3 data-translate="education">Formation scolaire</h3>
-                <ul>
-                    <li data-translate="education-list-1">Brevet des collèges</li>
-                    <li data-translate="education-list-2">Bac général option mathématiques, Numérique/Sciences de l'Informatique en terminale accompagné de Physique en première</li>
-                    <li data-translate="education-list-3">Première année en CITISE réussie (formation réunissant un DUT GEII, une L2 de mathématiques ainsi que le DU CITISE)</li>
-                </ul>
-            </section>
-            <section>
+
+            <section class="skills">
                 <h3 data-translate="skills-title">Compétences</h3>
                 <ul>
                     <li data-translate="skills-list-1">Compétences en électronique embarquée</li>
@@ -53,8 +48,8 @@
                     <li data-translate="skills-list-11">Niveau B1 en espagnol</li>
                 </ul>
             </section>
-            
-            <section>
+
+            <section class="experience">
                 <h3 data-translate="experience">Expérience professionnelle</h3>
                 <ul>
                     <li data-translate="experience-list-1">Stage d'observation de troisième effectué dans l'entreprise XPO Logistics où j'ai parcouru différents services et observé le fonctionnement complexe de son organisation et de son administration.</li>
@@ -64,7 +59,7 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="projects">
                 <h3 data-translate="projects-title">Projets</h3>
                 <ul>
                     <li data-translate="projects-list-1">Utilisation d'un ancien ordinateur pour mettre en place un serveur web communiquant avec des ESP-32 affichant la température.</li>
@@ -75,7 +70,16 @@
                 </ul>
             </section>
 
-            <section>
+            <section class="education">
+                <h3 data-translate="education">Formation scolaire</h3>
+                <ul>
+                    <li data-translate="education-list-1">Brevet des collèges</li>
+                    <li data-translate="education-list-2">Bac général option mathématiques, Numérique/Sciences de l'Informatique en terminale accompagné de Physique en première</li>
+                    <li data-translate="education-list-3">Première année en CITISE réussie (formation réunissant un DUT GEII, une L2 de mathématiques ainsi que le DU CITISE)</li>
+                </ul>
+            </section>
+
+            <section class="volunteer">
                 <h3 data-translate="volunteer-title">Homologation et Bénévolat</h3>
                 <ul>
                     <li data-translate="benevolat-list-1">Participation à l'organisation d'événements comme la course de la Rivatière qui a lieu chaque année.</li>

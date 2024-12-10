@@ -146,26 +146,26 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.height = window.innerHeight;
 
     const shapes = [];
-    for (let i = 0; i < 50; i++) {
+    for (let i = 0; i < 30; i++) {  // Réduire le nombre de formes
         shapes.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            size: Math.random() * 20 + 10,
-            dx: Math.random() * 2 - 1,
-            dy: Math.random() * 2 - 1,
-            opacity: Math.random() * 0.5 + 0.5
+            size: Math.random() * 10 + 5,  // Formes plus petites
+            dx: Math.random() * 0.5 - 0.25,  // Mouvement plus lent
+            dy: Math.random() * 0.5 - 0.25,
+            opacity: Math.random() * 0.3 + 0.1  // Opacité réduite
         });
     }
 
     function drawShapes() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         shapes.forEach(shape => {
-            ctx.fillStyle = `rgba(0, 123, 255, ${shape.opacity})`;
+            ctx.fillStyle = `rgba(100, 255, 218, ${shape.opacity})`;  // Couleur plus professionnelle
             ctx.beginPath();
             ctx.arc(shape.x, shape.y, shape.size, 0, Math.PI * 2);
             ctx.fill();
-            ctx.shadowColor = 'rgba(0, 123, 255, 0.5)';
-            ctx.shadowBlur = 20;
+            ctx.shadowColor = 'rgba(100, 255, 218, 0.3)';
+            ctx.shadowBlur = 10;
         });
     }
 
@@ -184,11 +184,51 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    function animate() {
-        drawShapes();
-        updateShapes();
-        requestAnimationFrame(animate);
+    // Optimisation des performances de rendu
+    let animationFrameId;
+    let lastTime = 0;
+    const FPS = 30;
+    const frameDelay = 1000 / FPS;
+
+    // Gestion du redimensionnement
+    function handleResize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
 
-    animate();
+    // Throttle du redimensionnement
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        if (resizeTimeout) clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(handleResize, 250);
+    });
+
+    // Animation optimisée
+    function animate(currentTime) {
+        animationFrameId = requestAnimationFrame(animate);
+
+        const deltaTime = currentTime - lastTime;
+        if (deltaTime < frameDelay) return;
+
+        lastTime = currentTime - (deltaTime % frameDelay);
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawShapes();
+        updateShapes();
+    }
+
+    // Nettoyage lors de la fermeture
+    window.addEventListener('beforeunload', () => {
+        cancelAnimationFrame(animationFrameId);
+    });
+
+    // Initialisation langue par défaut du navigateur
+    const userLang = navigator.language.split('-')[0];
+    if (translations[userLang]) {
+        languageSelector.value = userLang;
+        const event = new Event('change');
+        languageSelector.dispatchEvent(event);
+    }
+
+    animate(0);
 });
