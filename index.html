@@ -13,8 +13,18 @@
     <canvas id="background-canvas"></canvas>
     <div class="Background">
         <div class="Header">
-            <h1>Aymeric SOULAS</h1>
-            <div style="position: relative; z-index: 100;">
+            <div class="title">
+                <h1>Aymeric SOULAS</h1>
+            </div>
+            <div class="menu-container">
+                <div class="nav-buttons">
+                    <a href="Documents/Cv.pdf" target="_blank" class="nav-button">
+                        <span class="button-content">
+                            <i class="fas fa-file-download"></i>
+                            <span>CV</span>
+                        </span>
+                    </a>
+                </div>
                 <select id="language-selector">
                     <option value="fr">Français</option>
                     <option value="en">English</option>
@@ -38,7 +48,7 @@
                     <li data-translate="skills-list-1">Compétences en électronique embarquée</li>
                     <li data-translate="skills-list-2">Soudure de composants</li>
                     <li data-translate="skills-list-3">Manipulation d'équipements et de logiciels informatiques</li>
-                    <li data-translate="skills-list-4">Connaissances basiques en programmation (C++, Python, C#, Java)</li>
+                    <li data-translate="skills-list-4">Connaissances basiques en programmation (C++, Python, C#, Java), LaTeX</li>
                     <li data-translate="skills-list-5">Utilisation basique de LaTeX</li>
                     <li data-translate="skills-list-6">Connaissances en musique et appareils audio</li>
                     <li data-translate="skills-list-7">Habilitation électrique</li>
@@ -80,7 +90,7 @@
             </section>
 
             <section class="volunteer">
-                <h3 data-translate="volunteer-title">Homologation et Bénévolat</h3>
+                <h3 data-translate="volunteer-title">Bénévolat</h3>
                 <ul>
                     <li data-translate="benevolat-list-1">Participation à l'organisation d'événements comme la course de la Rivatière qui a lieu chaque année.</li>
                     <li data-translate="benevolat-list-2">Installation des équipements pour les fêtes de la musique et les auditions de l'école de musique EMUSMA.</li>
@@ -90,6 +100,7 @@
             </section>
         </div>
     </div>
+    <script src="https://kit.fontawesome.com/your-kit-code.js"></script>
     <script src="index.js"></script>
 </body>
 </html>
